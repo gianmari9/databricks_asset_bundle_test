@@ -1,0 +1,29 @@
+bundle:
+  name: bundle_demo
+
+#Instead to put resources here we can use include command
+#resources:
+  #Resources should be here
+
+include:
+  - src/*.yml
+  - src/env/*.yml
+  - resources/jobs/*.yml
+  - resources/pipelines/*.yml
+  - resources/schemas/*.yml
+
+permissions:
+  - group_name: users
+    level: CAN_MANAGE
+
+targets:
+  dev:
+    mode: development
+    default: true
+    workspace: 
+      host: https://dbc-505ba473-3de6.cloud.databricks.com/
+
+  qa:
+    default: false
+    workspace: 
+      host: https://dbc-505ba473-3de6.cloud.databricks.com/
